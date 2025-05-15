@@ -42,37 +42,27 @@ h1, h2, h3 {
   margin-top: 1.5rem;
 }
 
-/* 🟣 New styles for the post listing */
-.post-card {
-  border-left: 4px solid #4b0082; /* indigo-ish */
-  padding: 1rem 1.2rem;
-  margin: 1.5rem 0;
-  background-color: #f8f6ff;
-  transition: background 0.2s ease;
+/* 🪄 Clean post listing style */
+.post-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
-.post-card:hover {
-  background-color: #f0ecff;
+.post-card {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #ccc;
 }
 
 .post-title {
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.3rem;
-  color: #2b005f;
+  color: #000;
 }
 
 .post-date {
   font-size: 0.9rem;
   color: #888;
   margin: 0;
-}
-
-.post-card-link {
-  text-decoration: none;
-  display: block;
-}
-
-.post-card-link:hover .post-card {
-  background-color: #f0ecff;
 }
