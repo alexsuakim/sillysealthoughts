@@ -1,5 +1,6 @@
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("favicon.ico");
+    eleventyConfig.addPassthroughCopy("styles");
   
     return {
       dir: {
@@ -8,3 +9,4 @@ module.exports = function(eleventyConfig) {
       }
     };
   };
+  
