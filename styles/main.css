@@ -1,11 +1,28 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #fdfcfb;
   color: #333;
-  margin: 0;
-  padding: 0;
   line-height: 1.8;
   font-weight: 300;
+}
+
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 0 2rem;
 }
 
 header {
@@ -13,6 +30,7 @@ header {
   text-align: center;
   background: #fff;
   border-bottom: 1px solid #eee;
+  cursor: url('/styles/wave-cursor.png') 0 0, auto;
 }
 
 nav {
@@ -25,12 +43,6 @@ nav a {
   color: #555;
   font-weight: 500;
   font-size: 1.05rem;
-}
-
-main {
-  max-width: 720px;
-  margin: 3rem auto;
-  padding: 0 2rem;
 }
 
 footer {
@@ -46,10 +58,6 @@ footer {
   color: inherit;
 }
 
-.site-title:hover {
-  cursor: url("/styles/wave-cursor.png") 0 0, auto;
-}
-
 h1, h2, h3 {
   margin-top: 2rem;
   font-weight: 400;
@@ -62,19 +70,19 @@ p {
 }
 
 main p {
-  color: #555; 
+  color: #555;
   line-height: 1.8;
   margin: 1rem 0;
 }
 
 main a {
-  color: inherit; /* Keeps it same as surrounding text */
-  text-decoration: underline; /* Shows underline */
-  font-weight: 400; /* Optional: tweak weight if needed */
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 400;
 }
 
 main a:hover {
-  opacity: 0.8; /* Optional: tiny visual cue on hover */
+  opacity: 0.8;
 }
 
 .post-card-link {
@@ -90,9 +98,9 @@ main a:hover {
 
 .post-title {
   font-size: 1.2rem;
-  font-weight: 400; 
+  font-weight: 400;
   margin-bottom: 0.3rem;
-  color: #222; 
+  color: #222;
   letter-spacing: -0.2px;
 }
 
@@ -104,16 +112,16 @@ main a:hover {
 
 .post-heading {
   font-size: 1.3rem;
-  font-weight: 400; 
+  font-weight: 400;
   color: #222;
   margin-bottom: 0.8rem;
   line-height: 1.4;
-  letter-spacing: -0.3px; /* adds a soft, airy feel */
+  letter-spacing: -0.3px;
 }
 
 .post-date-meta {
   font-size: 0.95rem;
   color: #555;
   font-style: italic;
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
 }
