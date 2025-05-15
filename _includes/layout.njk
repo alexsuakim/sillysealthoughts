@@ -11,18 +11,18 @@
   <header>
     <h1>sillysealthoughts</h1>
     <nav>
-      <a href="/">Home</a>
+      <a href="/">home</a>
       <a href="/journaling/">journaling</a>
       <a href="/learning/">learning</a>
     </nav>
   </header>
 
   <main>
-  {% if title and page.url != "/journaling/" and page.url != "/learning/" and page.url != "/home/" %}
+  {% if title and page.url != "/journaling/" and page.url != "/learning/" and page.url != "/" %}
     <h1 class="post-heading">{{ title }}</h1>
   {% endif %}
 
-  {% if date and page.url != "/journaling/" and page.url != "/learning/" and page.url != "/home/" %}
+  {% if date and page.url != "/journaling/" and page.url != "/learning/" and page.url != "/" %}
     <p class="post-date-meta">{{ date | readableDate }}</p>
   {% endif %}
 
