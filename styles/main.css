@@ -47,7 +47,7 @@ footer {
 }
 
 .site-title:hover {
-  cursor: url("/styles/wave-cursor.png"), auto;
+  cursor: url("/styles/wave-cursor.png") 0 0, auto;
 }
 
 h1, h2, h3 {
