@@ -2,14 +2,14 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("favicon.ico");
     eleventyConfig.addPassthroughCopy("styles");
 
-    // Tech posts
-    eleventyConfig.addCollection("tech", function (collectionApi) {
-        return collectionApi.getFilteredByGlob("tech/*.md");
+    // learning posts
+    eleventyConfig.addCollection("learning", function (collectionApi) {
+        return collectionApi.getFilteredByGlob("learning/*.md");
     });
 
-    // Thoughts posts
-    eleventyConfig.addCollection("thoughts", function (collectionApi) {
-        return collectionApi.getFilteredByGlob("thoughts/*.md");
+    // journaling posts
+    eleventyConfig.addCollection("journaling", function (collectionApi) {
+        return collectionApi.getFilteredByGlob("journaling/*.md");
     });
 
     return {

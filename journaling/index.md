@@ -1,9 +1,9 @@
 ---
-title: sillysealthoughts
+title: journals
 layout: layout.njk
 ---
 <div class="post-list">
-    {% for post in collections.tech reversed %}
+    {% for post in collections.journaling reversed %}
     {% unless post.inputPath contains "/index.md" %}
         <a href="{{ post.url }}" class="post-card-link">
         <div class="post-card">
