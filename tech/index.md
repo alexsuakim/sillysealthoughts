@@ -2,14 +2,13 @@
 title: Tech
 layout: layout.njk
 ---
-
-<h1>🧠 Tech Splash Zone</h1>
-
-<ul>
+<div class="post-list">
   {% for post in collections.tech %}
-    <li>
-      <a href="{{ post.url }}">{{ post.data.title }}</a>
-      <small>{{ post.date | date: "%Y-%m-%d" }}</small>
-    </li>
+    <div class="post-item">
+      <div class="post-text">
+        <div class="post-title">{{ post.data.title }}</div>
+        <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+      </div>
+    </div>
   {% endfor %}
-</ul>
+</div>

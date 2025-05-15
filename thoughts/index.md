@@ -3,12 +3,12 @@ title: Thought Pond
 layout: layout.njk
 ---
 <div class="post-list">
-  {% for post in collections.thoughts reversed %}
+  {% for post in collections.thoughts %}
     <div class="post-item">
-      <a href="{{ post.url }}">
-        <h2>{{ post.data.title }}</h2>
-        <div class="date">{{ post.date | date: "%Y-%m-%d" }}</div>
-      </a>
+      <div class="post-text">
+        <div class="post-title">{{ post.data.title }}</div>
+        <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+      </div>
     </div>
   {% endfor %}
 </div>
