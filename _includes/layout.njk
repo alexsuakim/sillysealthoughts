@@ -8,20 +8,22 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 </head>
 <body>
-  <header>
-    <h1>Silly Seal Thoughts 🦭</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/thoughts/">Thoughts</a>
-      <a href="/tech/">Tech</a>
-    </nav>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Silly Seal Thoughts 🦭</h1>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/thoughts/">Thoughts</a>
+        <a href="/tech/">Tech</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main class="site-main container">
     {{ content | safe }}
   </main>
 
-  <footer>
+  <footer class="site-footer container">
     <p>© 2025 SillySealThoughts.com spreading silly seal vibes 🐚</p>
   </footer>
 </body>
