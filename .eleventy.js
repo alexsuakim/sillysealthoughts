@@ -1,8 +1,8 @@
 const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addFilter("date", (value, format = "dd LLLL yyyy") => {
-    return DateTime.fromJSDate(value).toFormat(format);
+  eleventyConfig.addFilter("readableDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj).toFormat("dd LLLL yyyy");
   });
 
   eleventyConfig.addPassthroughCopy("favicon.ico");

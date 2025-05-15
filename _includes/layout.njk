@@ -22,7 +22,7 @@
         <h1 class="post-heading">{{ title }}</h1>
     {% endif %}
     {% if date %}
-        <p class="post-date-meta">{{ date | date("yyyy-MM-dd") }}</p>
+        <p class="post-date-meta">{{ date | readableDate }}</p>
     {% endif %}
 
     {{ content | safe }}
