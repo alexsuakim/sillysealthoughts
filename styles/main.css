@@ -41,6 +41,15 @@ footer {
   color: #aaa;
 }
 
+.site-title {
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-title:hover {
+  cursor: url("/styles/wave-cursor.png"), auto;
+}
+
 h1, h2, h3 {
   margin-top: 2rem;
   font-weight: 400;
