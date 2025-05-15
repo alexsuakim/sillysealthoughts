@@ -1,22 +1,26 @@
+const { DateTime } = require("luxon");
+
 module.exports = function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("favicon.ico");
-    eleventyConfig.addPassthroughCopy("styles");
+  eleventyConfig.addFilter("date", (value, format = "dd LLLL yyyy") => {
+    return DateTime.fromJSDate(value).toFormat(format);
+  });
 
-    // learning posts
-    eleventyConfig.addCollection("learning", function (collectionApi) {
-        return collectionApi.getFilteredByGlob("learning/*.md");
-    });
+  eleventyConfig.addPassthroughCopy("favicon.ico");
+  eleventyConfig.addPassthroughCopy("styles");
 
-    // journaling posts
-    eleventyConfig.addCollection("journaling", function (collectionApi) {
-        return collectionApi.getFilteredByGlob("journaling/*.md");
-    });
+  eleventyConfig.addCollection("learning", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("learning/*.md");
+  });
 
-    return {
-        dir: {
-        input: ".",
-        output: "_site",
-        includes: "_includes"
-        }
-    };
+  eleventyConfig.addCollection("journaling", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("journaling/*.md");
+  });
+
+  return {
+    dir: {
+      input: ".",
+      output: "_site",
+      includes: "_includes"
+    }
+  };
 };
