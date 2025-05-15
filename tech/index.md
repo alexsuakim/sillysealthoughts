@@ -1,5 +1,5 @@
 ---
-title: Tech
+title: sillysealthoughts
 layout: layout.njk
 ---
 <div class="post-list">

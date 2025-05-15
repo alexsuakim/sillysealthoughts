@@ -1,5 +1,5 @@
 ---
-title: Thought Pond
+title: sillysealthoughts
 layout: layout.njk
 ---
 <div class="post-list">
