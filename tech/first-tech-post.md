@@ -1,4 +1,3 @@
-/* /src/tech/first-tech-post.md */
 ---
 title: "Fine-tuning OCR Models 101"
 date: 2025-05-15

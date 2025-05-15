@@ -1,5 +1,3 @@
-
-/* /src/thoughts/first-thought.md */
 ---
 title: "My First Silly Thought"
 date: 2025-05-15
