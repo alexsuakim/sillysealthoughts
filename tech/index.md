@@ -3,7 +3,13 @@ title: Tech
 layout: layout.njk
 ---
 
-# 🧠 Tech Experiments
+<h1>🧠 Tech Splash Zone</h1>
 
-This is where I store my silly seal-shaped code adventures.  
-Some work, some crash — but all are cute.
+<ul>
+  {% for post in collections.tech %}
+    <li>
+      <a href="{{ post.url }}">{{ post.data.title }}</a>
+      <small>{{ post.date | date: "%Y-%m-%d" }}</small>
+    </li>
+  {% endfor %}
+</ul>

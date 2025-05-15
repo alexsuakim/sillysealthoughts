@@ -3,6 +3,13 @@ title: Thoughts
 layout: layout.njk
 ---
 
-# My Thoughts 💭
+<h1>🌊 Thought Pond</h1>
 
-Sometimes they’re silly. Sometimes they’re seal-y.
+<ul>
+  {% for post in collections.thoughts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.data.title }}</a>
+      <small>{{ post.date | date: "%Y-%m-%d" }}</small>
+    </li>
+  {% endfor %}
+</ul>
