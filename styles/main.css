@@ -1,41 +1,35 @@
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+}
 
-/* /src/styles/main.css */
-body {
-    font-family: sans-serif;
-    background-color: #fdfcfb;
-    color: #222;
-    margin: 0;
-    padding: 0 2rem;
-  }
-  
-  header {
-    padding: 1.5rem 0;
-    text-align: center;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-  }
-  
-  nav a {
-    margin: 0 1rem;
-    text-decoration: none;
-    color: #555;
-  }
-  
-  footer {
-    text-align: center;
-    margin-top: 2rem;
-    padding: 2rem 0;
-    font-size: 0.9rem;
-    color: #aaa;
-  }
-  
-  h1, h2, h3 {
-    margin-top: 1.5rem;
-  }
-  
-  main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 2rem 0;
-  }
-  
+.post-item {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+  background-color: #f9f9f9;
+}
+
+.post-item:hover {
+  background-color: #f1f1f1;
+}
+
+.post-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-item h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.post-date {
+  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+  color: #888;
+}
