@@ -2,14 +2,13 @@
 title: Thoughts
 layout: layout.njk
 ---
-
-<h1>🌊 Thought Pond</h1>
-
-<ul>
+<div class="post-list">
   {% for post in collections.thoughts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.data.title }}</a>
-      <small>{{ post.date | date: "%Y-%m-%d" }}</small>
-    </li>
+    <div class="post-item">
+      <a href="{{ post.url }}">
+        <h2>{{ post.data.title }}</h2>
+        <p class="post-date">{{ post.date | date: "%Y-%m-%d" }}</p>
+      </a>
+    </div>
   {% endfor %}
-</ul>
+</div>
