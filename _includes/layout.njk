@@ -18,11 +18,11 @@
   </header>
 
   <main>
-  {% if title and page.url != "/journaling/" and page.url != "/learning/" %}
+  {% if title and page.url != "/journaling/" and page.url != "/learning/" and page.url != "/home/" %}
     <h1 class="post-heading">{{ title }}</h1>
   {% endif %}
 
-  {% if date and page.url != "/journaling/" and page.url != "/learning/" %}
+  {% if date and page.url != "/journaling/" and page.url != "/learning/" and page.url != "/home/" %}
     <p class="post-date-meta">{{ date | readableDate }}</p>
   {% endif %}
 
