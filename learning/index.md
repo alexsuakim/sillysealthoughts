@@ -8,7 +8,7 @@ layout: layout.njk
         <a href="{{ post.url }}" class="post-card-link">
         <div class="post-card">
             <div class="post-title">{{ post.data.title }}</div>
-            <p class="post-date">{{ post.date | date: "%Y-%m-%d" }}</p>
+            <p class="post-date">{{ post.date | readableDate }}</p>
         </div>
         </a>
     {% endunless %}
