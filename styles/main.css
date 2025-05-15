@@ -67,3 +67,12 @@ h1, h2, h3 {
   color: #888;
   margin: 0;
 }
+
+.post-card-link {
+  text-decoration: none;
+  display: block;
+}
+
+.post-card-link:hover .post-card {
+  background-color: #f0ecff;
+}
