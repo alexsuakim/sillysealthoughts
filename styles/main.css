@@ -88,15 +88,16 @@ main a:hover {
   opacity: 0.8;
 }
 
+/* ---------- Post styling ---------- */
 .post-card-link {
   text-decoration: none;
   color: inherit;
   display: block;
+  transition: opacity 0.2s ease;
 }
 
 .post-card-link:hover {
   opacity: 0.6;
-  transition: opacity 0.2s ease;
 }
 
 .post-card {
@@ -105,10 +106,6 @@ main a:hover {
   background: none;
   border-radius: 0;
   box-shadow: none;
-}
-
-.post-card:hover {
-  background-color: transparent;
 }
 
 .card-container {
@@ -145,6 +142,7 @@ main a:hover {
   margin-bottom: 2rem;
 }
 
+/* ---------- Home-specific ---------- */
 .home-intro p,
 .home-outro p {
   font-size: 1.05rem;
@@ -161,5 +159,48 @@ main a:hover {
 }
 
 section {
-  margin-bottom: 4rem;
+  margin-bottom: 10rem;
+}
+
+/* Featured entry grid on homepage only */
+.latest-entry-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .latest-entry-grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.featured-entry-link {
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+  transition: opacity 0.2s ease;
+}
+
+.featured-entry-link:hover {
+  opacity: 0.65;
+}
+
+.featured-entry {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.entry-subheader {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 0.4rem;
+}
+
+.featured-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #111;
+  margin: 0 0 0.4rem;
 }

@@ -9,36 +9,34 @@ title: home
 </section>
 
 <section class="home-featured">
-  <h2>latest entries</h2>
-  <div class="card-container">
+  <h2 class="section-title">latest entries</h2>
+  <div class="latest-entry-grid">
 
-    {# Journaling: newest post excluding index.md #}
-    {% set journalCount = 0 %}
-    {% for post in collections.journaling | reverse %}
-      {% if "index.md" not in post.inputPath and journalCount < 1 %}
-        <a href="{{ post.url }}" class="post-card-link">
-          <div class="post-card">
-            <div class="post-title">{{ post.data.title }}</div>
-            <p class="post-date">{{ post.date | readableDate }}</p>
-          </div>
-        </a>
-        {% set journalCount = journalCount + 1 %}
-      {% endif %}
-    {% endfor %}
+    {% set journalPosts = collections.journaling | reverse %}
+    {% set latestJournal = journalPosts | rejectattr("inputPath", "equalto", "./journaling/index.md") | first %}
 
-    {# Learning: newest post excluding index.md #}
-    {% set learnCount = 0 %}
-    {% for post in collections.learning | reverse %}
-      {% if "index.md" not in post.inputPath and learnCount < 1 %}
-        <a href="{{ post.url }}" class="post-card-link">
-          <div class="post-card">
-            <div class="post-title">{{ post.data.title }}</div>
-            <p class="post-date">{{ post.date | readableDate }}</p>
-          </div>
-        </a>
-        {% set learnCount = learnCount + 1 %}
-      {% endif %}
-    {% endfor %}
+    {% set learningPosts = collections.learning | reverse %}
+    {% set latestLearn = learningPosts | rejectattr("inputPath", "equalto", "./learning/index.md") | first %}
+
+    {% if latestJournal %}
+    <a href="{{ latestJournal.url }}" class="featured-entry-link">
+      <div class="featured-entry">
+        <p class="entry-subheader">from journaling</p>
+        <h3 class="featured-title">{{ latestJournal.data.title }}</h3>
+        <p class="post-date">{{ latestJournal.date | readableDate }}</p>
+      </div>
+    </a>
+    {% endif %}
+
+    {% if latestLearn %}
+    <a href="{{ latestLearn.url }}" class="featured-entry-link">
+      <div class="featured-entry">
+        <p class="entry-subheader">from learning</p>
+        <h3 class="featured-title">{{ latestLearn.data.title }}</h3>
+        <p class="post-date">{{ latestLearn.date | readableDate }}</p>
+      </div>
+    </a>
+    {% endif %}
 
   </div>
 </section>
