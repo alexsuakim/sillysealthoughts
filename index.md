@@ -4,12 +4,12 @@ title: home
 ---
 
 <section class="home-intro">
-  <h2>안녕 🦭</h2>
+  <h1>안녕 🦭</h1>
   <p> this space was inspired by silly seals napping on small rocks and shit.</p>
 </section>
 
 <section class="home-featured">
-  <h2>latest entries</h2>
+  <h1>latest entries</h1>
   <div class="card-container">
     {%- for post in collections.journaling | reverse | slice(0, 1) %}
       <a href="{{ post.url }}" class="post-card-link">
@@ -32,11 +32,10 @@ title: home
 </section>
 
 <section class="home-playlist">
-  <h2>🌊 for extra sillyseal vibes 🌊</h2>
-  <iframe style="border-radius:12px" 
+  <iframe 
+    style="border-radius:12px" 
     src="https://open.spotify.com/embed/playlist/2ZnXnZk5ttIPWKZIJHe4Ds?utm_source=generator" 
-    width="100%" height="352" frameBorder="0" allowfullscreen 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-    loading="lazy">
+    width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; 
+    encrypted-media; fullscreen; picture-in-picture" loading="lazy">
   </iframe>
 </section>
