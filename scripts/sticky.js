@@ -12,6 +12,7 @@ const addButton = document.getElementById("add-note-btn");
 
 addButton.addEventListener("click", () => {
   popup.style.display = "block";
+  addButton.style.display = "none";
 });
 
 noteForm.addEventListener("submit", async (e) => {
@@ -34,6 +35,7 @@ noteForm.addEventListener("submit", async (e) => {
   } else {
     loadNotes();
     popup.style.display = "none";
+    addButton.style.display = "block";
     noteForm.reset();
   }
 });

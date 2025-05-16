@@ -1,35 +1,36 @@
 .sticky-board-wrapper {
     position: relative;
-    min-height: 1600px; /* allow scrolling */
+    min-height: 1600px;
     background-color: #fffdf5;
-    padding-bottom: 100px; /* for space under the floating button */
+    padding-bottom: 100px;
     overflow-y: auto;
   }
   
-  /* Sticky board container */
+  /* Board container */
   #board {
     position: relative;
     width: 100%;
     min-height: 100vh;
   }
   
-  /* Sticky note styling */
+  /* Sticky note */
   .sticky-note {
     position: absolute;
     padding: 1rem;
     width: 160px;
     min-height: 100px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
     font-size: 1rem;
     color: #333;
     word-wrap: break-word;
+    white-space: pre-wrap;
     line-height: 1.4;
     cursor: move;
     z-index: 1;
   }
   
-  /* Floating ➕ Add Note Button */
+  /* ➕ Button */
   .add-note-btn {
     position: fixed;
     bottom: 2rem;
@@ -41,7 +42,7 @@
     color: white;
     border: none;
     border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     z-index: 10;
     transition: opacity 0.2s ease;
@@ -51,20 +52,21 @@
     opacity: 0.85;
   }
   
-  /* Sticky note popup form */
+  /* Sticky popup */
   .note-popup {
     position: fixed;
     bottom: 90px;
     right: 2rem;
-    background: #b0e0e6; /* default seal blue */
+    background: #b0e0e6;
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     display: none;
     width: 200px;
     z-index: 20;
   }
   
+  /* Note textarea */
   .note-popup textarea {
     width: 100%;
     min-height: 60px;
@@ -79,6 +81,7 @@
     color: #333;
   }
   
+  /* Dropdown and save button */
   .note-popup select,
   .note-popup button {
     font-size: 0.85rem;
