@@ -9,27 +9,30 @@ title: home
 </section>
 
 <section class="home-featured">
-  <h1>latest entries</h1>
+  <h2>latest entries</h2>
   <div class="card-container">
-    {%- for post in collections.journaling | reverse | slice(0, 1) %}
-      <a href="{{ post.url }}" class="post-card-link">
+    {%- set recentJournal = collections.journaling | reverse | first %}
+    {%- if recentJournal %}
+      <a href="{{ recentJournal.url }}" class="post-card-link">
         <div class="post-card">
-          <div class="post-title">{{ post.data.title }}</div>
-          <p class="post-date">{{ post.date | readableDate }}</p>
+          <div class="post-title">{{ recentJournal.data.title }}</div>
+          <p class="post-date">{{ recentJournal.date | readableDate }}</p>
         </div>
       </a>
-    {%- endfor %}
+    {%- endif %}
 
-    {%- for post in collections.learning | reverse | slice(0, 1) %}
-      <a href="{{ post.url }}" class="post-card-link">
+    {%- set recentLearning = collections.learning | reverse | first %}
+    {%- if recentLearning %}
+      <a href="{{ recentLearning.url }}" class="post-card-link">
         <div class="post-card">
-          <div class="post-title">{{ post.data.title }}</div>
-          <p class="post-date">{{ post.date | readableDate }}</p>
+          <div class="post-title">{{ recentLearning.data.title }}</div>
+          <p class="post-date">{{ recentLearning.date | readableDate }}</p>
         </div>
       </a>
-    {%- endfor %}
+    {%- endif %}
   </div>
 </section>
+
 
 <section class="home-playlist">
   <iframe 
