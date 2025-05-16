@@ -4,22 +4,23 @@ title: sticky board
 ---
 
 <section class="sticky-board-wrapper">
-  <div id="board" class="board"></div>
+  <div id="board"></div>
 
   <!-- Floating Add Button -->
-  <button id="add-note-btn" class="add-note-btn" aria-label="Add a new sticky note">➕</button>
+  <button id="add-note-btn" class="add-note-btn">＋</button>
 
-  <!-- Popup Sticky Note Form -->
+  <!-- Sticky Note Popup -->
   <div id="popup-form" class="note-popup">
     <form id="note-form">
-      <textarea id="note-text" placeholder="write something silly..." required></textarea>
+      <textarea id="note-text" placeholder="you can leave a note" required></textarea>
+      <label for="note-color">color:</label>
       <select id="note-color">
+        <option value="#b0e0e6" selected>blue</option>
         <option value="#ffff88">yellow</option>
         <option value="#ffc0cb">pink</option>
-        <option value="#b0e0e6">blue</option>
         <option value="#98fb98">green</option>
       </select>
-      <button type="submit">post</button>
+      <button type="submit">save note</button>
     </form>
   </div>
 </section>

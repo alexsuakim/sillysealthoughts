@@ -23,8 +23,8 @@ noteForm.addEventListener("submit", async (e) => {
   const { error } = await supabase.from("notes").insert({
     text,
     color,
-    x: window.innerWidth - 200,
-    y: window.innerHeight - 200,
+    x: window.innerWidth - 240,
+    y: window.innerHeight - 240,
     timestamp: new Date().toISOString(),
   });
 
@@ -52,7 +52,7 @@ async function loadNotes() {
       const noteEl = document.createElement("div");
       noteEl.className = "sticky-note";
       noteEl.textContent = note.text;
-      noteEl.style.background = note.color || "#ffff88";
+      noteEl.style.background = note.color || "#b0e0e6";
       noteEl.style.left = `${note.x}px`;
       noteEl.style.top = `${note.y}px`;
       noteEl.style.position = "absolute";
