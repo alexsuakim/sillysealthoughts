@@ -152,9 +152,9 @@ main a:hover {
 
 .home-featured h2,
 .home-playlist h2 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-top: 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   color: #333;
   text-align: center;
 }
@@ -167,21 +167,24 @@ section {
 .latest-entry-grid {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 3rem;
   position: relative;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   .latest-entry-grid {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 4rem;
   }
 
   .latest-entry-grid::before {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 10%;
+    bottom: 10%;
     left: 50%;
     width: 1px;
     background-color: #ddd;
@@ -194,6 +197,7 @@ section {
   text-decoration: none;
   color: inherit;
   flex: 1;
+  max-width: 300px;
   transition: opacity 0.2s ease;
   z-index: 1;
 }
@@ -203,22 +207,24 @@ section {
 }
 
 .featured-entry {
-  padding-bottom: 1.5rem;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .entry-subheader {
   font-size: 0.95rem;
   color: #777;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
 }
 
 .featured-title {
   font-size: 1.25rem;
   font-weight: 500;
   color: #111;
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.2rem;
   text-decoration: none;
 }
 
