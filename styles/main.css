@@ -1,11 +1,28 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #fdfcfb;
   color: #333;
-  margin: 0;
-  padding: 0;
   line-height: 1.8;
   font-weight: 300;
+}
+
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 0 2rem;
 }
 
 header {
@@ -25,12 +42,6 @@ nav a {
   color: #555;
   font-weight: 500;
   font-size: 1.05rem;
-}
-
-main {
-  max-width: 720px;
-  margin: 3rem auto;
-  padding: 0 2rem;
 }
 
 footer {
@@ -62,19 +73,19 @@ p {
 }
 
 main p {
-  color: #555; 
+  color: #555;
   line-height: 1.8;
   margin: 1rem 0;
 }
 
 main a {
-  color: inherit; /* Keeps it same as surrounding text */
-  text-decoration: underline; /* Shows underline */
-  font-weight: 400; /* Optional: tweak weight if needed */
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 400;
 }
 
 main a:hover {
-  opacity: 0.8; /* Optional: tiny visual cue on hover */
+  opacity: 0.8;
 }
 
 .post-card-link {
@@ -84,15 +95,38 @@ main a:hover {
 }
 
 .post-card {
-  padding: 1.2rem 0;
-  border-bottom: 1px solid #ccc;
+  padding: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+@media (min-width: 600px) {
+  .card-container {
+    flex-direction: row;
+  }
+
+  .post-card {
+    width: 100%;
+  }
 }
 
 .post-title {
   font-size: 1.2rem;
-  font-weight: 400; 
+  font-weight: 400;
   margin-bottom: 0.3rem;
-  color: #222; 
+  color: #222;
   letter-spacing: -0.2px;
 }
 
@@ -104,16 +138,31 @@ main a:hover {
 
 .post-heading {
   font-size: 1.3rem;
-  font-weight: 400; 
+  font-weight: 400;
   color: #222;
   margin-bottom: 0.8rem;
   line-height: 1.4;
-  letter-spacing: -0.3px; /* adds a soft, airy feel */
+  letter-spacing: -0.3px;
 }
 
 .post-date-meta {
   font-size: 0.95rem;
   color: #555;
   font-style: italic;
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
+}
+
+.home-intro p,
+.home-outro p {
+  font-size: 1.05rem;
+  color: #555;
+  margin: 1.2rem 0;
+}
+
+.home-featured h2,
+.home-playlist h2 {
+  font-size: 1.2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
