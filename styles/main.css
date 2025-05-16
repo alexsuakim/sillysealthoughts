@@ -46,7 +46,7 @@ nav a {
 
 footer {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: auto;
   padding: 2rem 0;
   font-size: 0.9rem;
   color: #aaa;
@@ -95,9 +95,9 @@ main a:hover {
 }
 
 .post-card {
-  padding: 1.2rem;
+  padding: 1.2rem 1.5rem;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   background-color: #fff;
   transition: box-shadow 0.2s ease;
 }
@@ -109,16 +109,12 @@ main a:hover {
 .card-container {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .card-container {
-    flex-direction: row;
-  }
-
-  .post-card {
-    width: 100%;
+    flex-direction: column; /* stacked for homepage */
   }
 }
 
