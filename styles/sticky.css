@@ -94,3 +94,6 @@
     font-family: inherit;
   }
   
+  #popup-form.show {
+    display: block !important;
+  }
