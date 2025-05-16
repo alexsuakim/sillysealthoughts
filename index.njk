@@ -9,30 +9,34 @@ title: home
 </section>
 
 <section class="home-featured">
-  <h2 class="featured-header">latest entries</h2>
-  <div class="dual-latest-wrapper">
-
-    {# Journaling: newest post excluding index.md #}
+  <h2 class="featured-heading">latest entries</h2>
+  <div class="latest-entry-grid">
+    
+    {# Latest from journaling #}
     {% set journalCount = 0 %}
     {% for post in collections.journaling | reverse %}
       {% if "index.md" not in post.inputPath and journalCount < 1 %}
-        <a href="{{ post.url }}" class="latest-entry">
-          <p class="latest-subheading">from journaling</p>
-          <h3 class="latest-title">{{ post.data.title }}</h3>
-          <p class="post-date">{{ post.date | readableDate }}</p>
+        <a href="{{ post.url }}" class="featured-entry-link">
+          <div class="featured-entry">
+            <div class="entry-subheader">from journaling</div>
+            <div class="featured-title">{{ post.data.title }}</div>
+            <div class="post-date">{{ post.date | readableDate }}</div>
+          </div>
         </a>
         {% set journalCount = journalCount + 1 %}
       {% endif %}
     {% endfor %}
 
-    {# Learning: newest post excluding index.md #}
+    {# Latest from learning #}
     {% set learnCount = 0 %}
     {% for post in collections.learning | reverse %}
       {% if "index.md" not in post.inputPath and learnCount < 1 %}
-        <a href="{{ post.url }}" class="latest-entry">
-          <p class="latest-subheading">from learning</p>
-          <h3 class="latest-title">{{ post.data.title }}</h3>
-          <p class="post-date">{{ post.date | readableDate }}</p>
+        <a href="{{ post.url }}" class="featured-entry-link">
+          <div class="featured-entry">
+            <div class="entry-subheader">from learning</div>
+            <div class="featured-title">{{ post.data.title }}</div>
+            <div class="post-date">{{ post.date | readableDate }}</div>
+          </div>
         </a>
         {% set learnCount = learnCount + 1 %}
       {% endif %}

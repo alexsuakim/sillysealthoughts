@@ -219,4 +219,11 @@ section {
   font-weight: 500;
   color: #111;
   margin: 0 0 0.4rem;
+  text-decoration: none;
+}
+
+.featured-entry .post-date {
+  font-size: 0.95rem;
+  color: #999;
+  margin: 0;
 }
