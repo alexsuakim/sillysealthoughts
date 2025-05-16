@@ -6,14 +6,12 @@
     overflow-y: auto;
   }
   
-  /* Board container */
   #board {
     position: relative;
     width: 100%;
     min-height: 100vh;
   }
   
-  /* Sticky note */
   .sticky-note {
     position: absolute;
     padding: 1rem;
@@ -30,7 +28,6 @@
     z-index: 1;
   }
   
-  /* ➕ Button */
   .add-note-btn {
     position: fixed;
     bottom: 2rem;
@@ -52,7 +49,6 @@
     opacity: 0.85;
   }
   
-  /* Sticky popup */
   .note-popup {
     position: fixed;
     bottom: 90px;
@@ -66,7 +62,6 @@
     z-index: 20;
   }
   
-  /* Note textarea */
   .note-popup textarea {
     width: 100%;
     min-height: 60px;
@@ -81,7 +76,6 @@
     color: #333;
   }
   
-  /* Dropdown and save button */
   .note-popup select,
   .note-popup button {
     font-size: 0.85rem;
