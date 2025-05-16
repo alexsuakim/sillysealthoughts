@@ -159,8 +159,8 @@ main a:hover {
   text-align: center;
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
   text-decoration-color: #3a6e6c; /* soft teal like your embed */
 }
 
