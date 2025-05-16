@@ -94,6 +94,11 @@ main a:hover {
   display: block;
 }
 
+.post-card-link:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
 .post-card {
   padding: 1.2rem 0;
   border-bottom: 1px solid #ccc;
@@ -153,4 +158,8 @@ main a:hover {
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   color: #333;
+}
+
+section {
+  margin-bottom: 4rem;
 }

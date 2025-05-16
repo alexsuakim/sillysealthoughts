@@ -12,39 +12,36 @@ title: home
   <h2>latest entries</h2>
   <div class="card-container">
 
-    {# Journaling: newest non-index post #}
-    {% set journalPosts = collections.journaling 
-      | reverse 
-      | selectattr("inputPath", "not in", "./journaling/index.md") 
-      | slice(0, 1) %}
-
-    {% for post in journalPosts %}
-      <a href="{{ post.url }}" class="post-card-link">
-        <div class="post-card">
-          <div class="post-title">{{ post.data.title }}</div>
-          <p class="post-date">{{ post.date | readableDate }}</p>
-        </div>
-      </a>
+    {# Journaling: newest post excluding index.md #}
+    {% set journalCount = 0 %}
+    {% for post in collections.journaling | reverse %}
+      {% if "index.md" not in post.inputPath and journalCount < 1 %}
+        <a href="{{ post.url }}" class="post-card-link">
+          <div class="post-card">
+            <div class="post-title">{{ post.data.title }}</div>
+            <p class="post-date">{{ post.date | readableDate }}</p>
+          </div>
+        </a>
+        {% set journalCount = journalCount + 1 %}
+      {% endif %}
     {% endfor %}
 
-    {# Learning: newest non-index post #}
-    {% set learningPosts = collections.learning 
-      | reverse 
-      | selectattr("inputPath", "not in", "./learning/index.md") 
-      | slice(0, 1) %}
-
-    {% for post in learningPosts %}
-      <a href="{{ post.url }}" class="post-card-link">
-        <div class="post-card">
-          <div class="post-title">{{ post.data.title }}</div>
-          <p class="post-date">{{ post.date | readableDate }}</p>
-        </div>
-      </a>
+    {# Learning: newest post excluding index.md #}
+    {% set learnCount = 0 %}
+    {% for post in collections.learning | reverse %}
+      {% if "index.md" not in post.inputPath and learnCount < 1 %}
+        <a href="{{ post.url }}" class="post-card-link">
+          <div class="post-card">
+            <div class="post-title">{{ post.data.title }}</div>
+            <p class="post-date">{{ post.date | readableDate }}</p>
+          </div>
+        </a>
+        {% set learnCount = learnCount + 1 %}
+      {% endif %}
     {% endfor %}
 
   </div>
 </section>
-
 
 <section class="home-playlist">
   <h2>🌊 for extra sillyseal vibes🌊</h2>
