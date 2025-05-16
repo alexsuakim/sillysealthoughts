@@ -3,25 +3,25 @@ layout: layout.njk
 title: sticky board
 ---
 
-<section class="sticky-note-app">
-  <h2 class="featured-heading">📌 leave a silly seal note</h2>
+<section class="sticky-board-wrapper">
+  <div id="board" class="board"></div>
 
-  <form id="noteForm">
-    <label for="noteText">note:</label><br>
-    <textarea id="noteText" rows="3" cols="30"></textarea><br>
+  <!-- Floating Add Button -->
+  <button id="add-note-btn" class="add-note-btn" aria-label="Add a new sticky note">➕</button>
 
-    <label for="noteColor">color:</label>
-    <select id="noteColor">
-      <option value="#FFF176">yellow</option>
-      <option value="#AED581">green</option>
-      <option value="#81D4FA">blue</option>
-      <option value="#F48FB1">pink</option>
-    </select>
-
-    <button type="submit">add note</button>
-  </form>
-
-  <div id="board" style="position: relative; height: 600px; border: 1px dashed #ccc; margin-top: 2rem;"></div>
-
-  <script type="module" src="/scripts/sticky.js"></script>
+  <!-- Popup Sticky Note Form -->
+  <div id="popup-form" class="note-popup">
+    <form id="note-form">
+      <textarea id="note-text" placeholder="write something silly..." required></textarea>
+      <select id="note-color">
+        <option value="#ffff88">yellow</option>
+        <option value="#ffc0cb">pink</option>
+        <option value="#b0e0e6">blue</option>
+        <option value="#98fb98">green</option>
+      </select>
+      <button type="submit">post</button>
+    </form>
+  </div>
 </section>
+
+<script type="module" src="/scripts/sticky.js"></script>

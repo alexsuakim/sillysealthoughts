@@ -6,37 +6,40 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const board = document.getElementById("board");
+const popup = document.getElementById("popup-form");
+const noteForm = document.getElementById("note-form");
+const addButton = document.getElementById("add-note-btn");
 
-// Add a new sticky note
-const addNoteBtn = document.getElementById("add-note-btn");
-if (addNoteBtn) {
-  addNoteBtn.addEventListener("click", async () => {
-    const color = document.getElementById("note-color").value;
-    const text = document.getElementById("note-text").value.trim();
-    if (!text) return;
+addButton.addEventListener("click", () => {
+  popup.style.display = "block";
+});
 
-    const { error } = await supabase.from("notes").insert({
-      text,
-      color,
-      x: 100,
-      y: 100,
-      timestamp: new Date().toISOString()
-    });
+noteForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const color = document.getElementById("note-color").value;
+  const text = document.getElementById("note-text").value.trim();
+  if (!text) return;
 
-    if (error) {
-      alert("Failed to save note 😿");
-      console.error(error);
-    } else {
-      loadNotes();
-      document.getElementById("note-text").value = "";
-    }
+  const { error } = await supabase.from("notes").insert({
+    text,
+    color,
+    x: window.innerWidth - 200,
+    y: window.innerHeight - 200,
+    timestamp: new Date().toISOString(),
   });
-}
 
-// Load notes
+  if (error) {
+    alert("Failed to save note 😿");
+    console.error(error);
+  } else {
+    loadNotes();
+    popup.style.display = "none";
+    noteForm.reset();
+  }
+});
+
 async function loadNotes() {
   board.innerHTML = "";
-
   const { data: notes, error } = await supabase.from("notes").select("*");
   if (error) {
     console.error("Couldn't load notes!", error);
@@ -58,10 +61,10 @@ async function loadNotes() {
     });
 }
 
-// Make notes draggable
 function makeDraggable(noteEl, id) {
   let isDragging = false;
-  let offsetX = 0, offsetY = 0;
+  let offsetX = 0,
+    offsetY = 0;
 
   noteEl.addEventListener("mousedown", (e) => {
     isDragging = true;
@@ -83,7 +86,7 @@ function makeDraggable(noteEl, id) {
 
     const { error } = await supabase.from("notes").update({
       x: parseInt(noteEl.style.left),
-      y: parseInt(noteEl.style.top)
+      y: parseInt(noteEl.style.top),
     }).eq("id", id);
 
     if (error) console.error("Failed to update position", error);

@@ -1,31 +1,18 @@
-.sticky-board {
-    text-align: center;
-  }
-  
-  .sticky-controls {
-    margin-bottom: 1.5rem;
-  }
-  
-  #note-text {
-    padding: 0.5rem;
-    font-size: 1rem;
-  }
-  
-  button {
-    margin-left: 0.5rem;
-    padding: 0.5rem 1rem;
-  }
-  
-  .board {
+.sticky-board-wrapper {
     position: relative;
-    height: 600px;
-    background: #f4f4f4;
+    height: 80vh;
     border: 1px dashed #ccc;
-    margin: 2rem auto;
-    width: 100%;
-    max-width: 720px;
+    background-color: #fffdf5;
+    overflow: hidden;
   }
   
+  #board {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* 🟨 Sticky Notes */
   .sticky-note {
     position: absolute;
     padding: 1rem;
@@ -33,6 +20,66 @@
     min-height: 80px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     cursor: move;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    word-break: break-word;
+    z-index: 1;
+  }
+  
+  /* ➕ Add Button */
+  .add-note-btn {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.4rem;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 50%;
+    background-color: #69c1c2;
+    color: white;
+    cursor: pointer;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.1);
+    transition: opacity 0.2s ease;
+    z-index: 5;
+  }
+  
+  .add-note-btn:hover {
+    opacity: 0.85;
+  }
+  
+  /* 📝 Popup Sticky */
+  .note-popup {
+    position: absolute;
+    bottom: 5rem;
+    right: 1.5rem;
+    background: #ffff88;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 10;
+    width: 200px;
+  }
+  
+  .note-popup textarea {
+    width: 100%;
+    height: 100px;
+    border: none;
+    resize: none;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background: transparent;
+  }
+  
+  .note-popup select,
+  .note-popup button {
+    font-size: 0.85rem;
+    margin-right: 0.3rem;
+    border: none;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
   }
   
