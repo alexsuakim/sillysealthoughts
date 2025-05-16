@@ -13,13 +13,13 @@ title: home
   <div class="card-container">
 
     {% set latestJournaling = collections.journaling 
-      | rejectattr("inputPath", "search", "index.md")
+      | rejectattr("inputPath", "equalto", "./journaling/index.md")
       | sort(attribute="date", reverse=true) 
       | first 
     %}
 
     {% set latestLearning = collections.learning 
-      | rejectattr("inputPath", "search", "index.md")
+      | rejectattr("inputPath", "equalto", "./learning/index.md")
       | sort(attribute="date", reverse=true) 
       | first 
     %}
