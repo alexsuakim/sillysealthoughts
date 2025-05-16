@@ -11,8 +11,8 @@ title: home
 <section class="home-featured">
   <h1>latest entries</h1>
   <div class="card-container">
-    {% set latestJournaling = collections.journaling | reverse | first %}
-    {% set latestLearning = collections.learning | reverse | first %}
+    {% set latestJournaling = collections.journaling | first %}
+    {% set latestLearning = collections.learning | first %}
 
     {% if latestJournaling %}
       <a href="{{ latestJournaling.url }}" class="post-card-link">
