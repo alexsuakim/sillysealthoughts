@@ -1,42 +1,67 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-// Supabase setup
-const supabaseUrl = 'https://orstofmyjmznjtiuilvf.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9yc3RvZm15am16bmp0aXVpbHZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczNzU3OTksImV4cCI6MjA2Mjk1MTc5OX0.0csRR2N4IB4j7vuTtPct6qKmi5ktGm8--cjJAgKMMbk'; 
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = createClient(
+  'https://orstofmyjmznjtiuilvf.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9yc3RvZm15am16bmp0aXVpbHZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczNzU3OTksImV4cCI6MjA2Mjk1MTc5OX0.0csRR2N4IB4j7vuTtPct6qKmi5ktGm8--cjJAgKMMbk'
+);
 
 const board = document.getElementById("board");
 const popup = document.getElementById("popup-form");
 const noteForm = document.getElementById("note-form");
 const addButton = document.getElementById("add-note-btn");
+const colorSelect = document.getElementById("note-color");
+
+let draftNote = null;
 
 addButton.addEventListener("click", () => {
-  popup.style.display = "block";
+  popup.style.display = "none";
   addButton.style.display = "none";
+
+  draftNote = document.createElement("div");
+  draftNote.className = "sticky-note";
+  draftNote.contentEditable = true;
+  draftNote.style.background = colorSelect.value;
+  draftNote.style.left = `${window.innerWidth - 240}px`;
+  draftNote.style.top = `${window.innerHeight - 240}px`;
+  draftNote.style.position = "absolute";
+  board.appendChild(draftNote);
+  makeDraggable(draftNote);
+
+  popup.style.display = "block";
+});
+
+colorSelect.addEventListener("change", () => {
+  if (draftNote) {
+    draftNote.style.background = colorSelect.value;
+  }
 });
 
 noteForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const color = document.getElementById("note-color").value;
+  const color = colorSelect.value;
   const text = document.getElementById("note-text").value.trim();
   if (!text) return;
+
+  const x = parseInt(draftNote.style.left);
+  const y = parseInt(draftNote.style.top);
 
   const { error } = await supabase.from("notes").insert({
     text,
     color,
-    x: window.innerWidth - 240,
-    y: window.innerHeight - 240,
-    timestamp: new Date().toISOString(),
+    x,
+    y,
+    timestamp: new Date().toISOString()
   });
 
   if (error) {
     alert("Failed to save note 😿");
     console.error(error);
   } else {
-    loadNotes();
     popup.style.display = "none";
     addButton.style.display = "block";
     noteForm.reset();
+    draftNote.remove();
+    loadNotes();
   }
 });
 
@@ -63,10 +88,10 @@ async function loadNotes() {
     });
 }
 
-function makeDraggable(noteEl, id) {
+function makeDraggable(noteEl, id = null) {
   let isDragging = false;
   let offsetX = 0,
-    offsetY = 0;
+      offsetY = 0;
 
   noteEl.addEventListener("mousedown", (e) => {
     isDragging = true;
@@ -86,12 +111,14 @@ function makeDraggable(noteEl, id) {
     isDragging = false;
     noteEl.style.zIndex = "";
 
-    const { error } = await supabase.from("notes").update({
-      x: parseInt(noteEl.style.left),
-      y: parseInt(noteEl.style.top),
-    }).eq("id", id);
+    if (id) {
+      const { error } = await supabase.from("notes").update({
+        x: parseInt(noteEl.style.left),
+        y: parseInt(noteEl.style.top),
+      }).eq("id", id);
 
-    if (error) console.error("Failed to update position", error);
+      if (error) console.error("Failed to update position", error);
+    }
   });
 }
 
