@@ -12,36 +12,39 @@ title: home
   <h2>latest entries</h2>
   <div class="card-container">
 
-    {# Journaling: filter out index.md, sort by date desc, show first #}
-    {% set journalPosts = collections.journaling | reverse %}
+    {# Journaling: newest non-index post #}
+    {% set journalPosts = collections.journaling 
+      | reverse 
+      | selectattr("inputPath", "not in", "./journaling/index.md") 
+      | slice(0, 1) %}
+
     {% for post in journalPosts %}
-      {% if "index.md" not in post.inputPath %}
-        <a href="{{ post.url }}" class="post-card-link">
-          <div class="post-card">
-            <div class="post-title">{{ post.data.title }}</div>
-            <p class="post-date">{{ post.date | readableDate }}</p>
-          </div>
-        </a>
-        {% break %}
-      {% endif %}
+      <a href="{{ post.url }}" class="post-card-link">
+        <div class="post-card">
+          <div class="post-title">{{ post.data.title }}</div>
+          <p class="post-date">{{ post.date | readableDate }}</p>
+        </div>
+      </a>
     {% endfor %}
 
-    {# Learning: same logic #}
-    {% set learningPosts = collections.learning | reverse %}
+    {# Learning: newest non-index post #}
+    {% set learningPosts = collections.learning 
+      | reverse 
+      | selectattr("inputPath", "not in", "./learning/index.md") 
+      | slice(0, 1) %}
+
     {% for post in learningPosts %}
-      {% if "index.md" not in post.inputPath %}
-        <a href="{{ post.url }}" class="post-card-link">
-          <div class="post-card">
-            <div class="post-title">{{ post.data.title }}</div>
-            <p class="post-date">{{ post.date | readableDate }}</p>
-          </div>
-        </a>
-        {% break %}
-      {% endif %}
+      <a href="{{ post.url }}" class="post-card-link">
+        <div class="post-card">
+          <div class="post-title">{{ post.data.title }}</div>
+          <p class="post-date">{{ post.date | readableDate }}</p>
+        </div>
+      </a>
     {% endfor %}
-    
+
   </div>
 </section>
+
 
 <section class="home-playlist">
   <h2>🌊 for extra sillyseal vibes🌊</h2>
