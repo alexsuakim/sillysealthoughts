@@ -11,31 +11,35 @@ title: home
 <section class="home-featured">
   <h2>latest entries</h2>
   <div class="card-container">
-    {%- assign journal_posts = collections.journaling | sort: "date" | reverse %}
-    {%- for post in journal_posts %}
-      {%- unless post.inputPath contains "/index.md" %}
-        <a href="{{ post.url }}" class="post-card-link">
-          <div class="post-card">
-            <div class="post-title">{{ post.data.title }}</div>
-            <p class="post-date">{{ post.date | readableDate }}</p>
-          </div>
-        </a>
-        {%- break %}
-      {%- endunless %}
-    {%- endfor %}
 
-    {%- assign learn_posts = collections.learning | sort: "date" | reverse %}
-    {%- for post in learn_posts %}
-      {%- unless post.inputPath contains "/index.md" %}
+    {# Journaling: filter out index.md, sort by date desc, show first #}
+    {% set journalPosts = collections.journaling | reverse %}
+    {% for post in journalPosts %}
+      {% if "index.md" not in post.inputPath %}
         <a href="{{ post.url }}" class="post-card-link">
           <div class="post-card">
             <div class="post-title">{{ post.data.title }}</div>
             <p class="post-date">{{ post.date | readableDate }}</p>
           </div>
         </a>
-        {%- break %}
-      {%- endunless %}
-    {%- endfor %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+
+    {# Learning: same logic #}
+    {% set learningPosts = collections.learning | reverse %}
+    {% for post in learningPosts %}
+      {% if "index.md" not in post.inputPath %}
+        <a href="{{ post.url }}" class="post-card-link">
+          <div class="post-card">
+            <div class="post-title">{{ post.data.title }}</div>
+            <p class="post-date">{{ post.date | readableDate }}</p>
+          </div>
+        </a>
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    
   </div>
 </section>
 
