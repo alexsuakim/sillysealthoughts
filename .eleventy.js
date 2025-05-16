@@ -7,6 +7,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("styles");
+  eleventyConfig.addPassthroughCopy("scripts");
 
   eleventyConfig.addCollection("learning", function (collectionApi) {
     return collectionApi.getFilteredByGlob("learning/*.md");

@@ -1,0 +1,38 @@
+.sticky-board {
+    text-align: center;
+  }
+  
+  .sticky-controls {
+    margin-bottom: 1.5rem;
+  }
+  
+  #note-text {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  button {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .board {
+    position: relative;
+    height: 600px;
+    background: #f4f4f4;
+    border: 1px dashed #ccc;
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 720px;
+  }
+  
+  .sticky-note {
+    position: absolute;
+    padding: 1rem;
+    width: 140px;
+    min-height: 80px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: move;
+    border-radius: 4px;
+  }
+  

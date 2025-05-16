@@ -1,0 +1,27 @@
+---
+layout: layout.njk
+title: sticky board
+---
+
+<section class="sticky-note-app">
+  <h2 class="featured-heading">📌 leave a silly seal note</h2>
+
+  <form id="noteForm">
+    <label for="noteText">note:</label><br>
+    <textarea id="noteText" rows="3" cols="30"></textarea><br>
+
+    <label for="noteColor">color:</label>
+    <select id="noteColor">
+      <option value="#FFF176">yellow</option>
+      <option value="#AED581">green</option>
+      <option value="#81D4FA">blue</option>
+      <option value="#F48FB1">pink</option>
+    </select>
+
+    <button type="submit">add note</button>
+  </form>
+
+  <div id="board" style="position: relative; height: 600px; border: 1px dashed #ccc; margin-top: 2rem;"></div>
+
+  <script type="module" src="/scripts/sticky.js"></script>
+</section>
