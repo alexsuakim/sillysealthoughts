@@ -5,53 +5,46 @@ title: home
 
 <section class="home-intro">
   <h1>안녕 🦭</h1>
-  <p> this space was inspired by silly seals napping on small rocks and shit.</p>
+  <p>this space was inspired by silly seals napping on small rocks and shit.</p>
 </section>
 
 <section class="home-featured">
-  <h1>latest entries</h1>
+  <h2>latest entries</h2>
   <div class="card-container">
+    {%- assign journal_posts = collections.journaling | sort: "date" | reverse %}
+    {%- for post in journal_posts %}
+      {%- unless post.inputPath contains "/index.md" %}
+        <a href="{{ post.url }}" class="post-card-link">
+          <div class="post-card">
+            <div class="post-title">{{ post.data.title }}</div>
+            <p class="post-date">{{ post.date | readableDate }}</p>
+          </div>
+        </a>
+        {%- break %}
+      {%- endunless %}
+    {%- endfor %}
 
-    {% set latestJournaling = collections.journaling 
-      | rejectattr("inputPath", "equalto", "./journaling/index.md")
-      | sort(attribute="date", reverse=true) 
-      | first 
-    %}
-
-    {% set latestLearning = collections.learning 
-      | rejectattr("inputPath", "equalto", "./learning/index.md")
-      | sort(attribute="date", reverse=true) 
-      | first 
-    %}
-
-    {% if latestJournaling %}
-      <a href="{{ latestJournaling.url }}" class="post-card-link">
-        <div class="post-card">
-          <div class="post-title">{{ latestJournaling.data.title }}</div>
-          <p class="post-date">{{ latestJournaling.date | readableDate }}</p>
-        </div>
-      </a>
-    {% endif %}
-
-    {% if latestLearning %}
-      <a href="{{ latestLearning.url }}" class="post-card-link">
-        <div class="post-card">
-          <div class="post-title">{{ latestLearning.data.title }}</div>
-          <p class="post-date">{{ latestLearning.date | readableDate }}</p>
-        </div>
-      </a>
-    {% endif %}
-
+    {%- assign learn_posts = collections.learning | sort: "date" | reverse %}
+    {%- for post in learn_posts %}
+      {%- unless post.inputPath contains "/index.md" %}
+        <a href="{{ post.url }}" class="post-card-link">
+          <div class="post-card">
+            <div class="post-title">{{ post.data.title }}</div>
+            <p class="post-date">{{ post.date | readableDate }}</p>
+          </div>
+        </a>
+        {%- break %}
+      {%- endunless %}
+    {%- endfor %}
   </div>
 </section>
 
 <section class="home-playlist">
-  <h2>🌊 for extra sillyseal vibes 🌊</h2>
+  <h2>🌊 for extra sillyseal vibes🌊</h2>
   <iframe 
     style="border-radius:12px" 
     src="https://open.spotify.com/embed/playlist/2ZnXnZk5ttIPWKZIJHe4Ds?utm_source=generator" 
-    width="100%" height="352" frameBorder="0" allowfullscreen 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-    loading="lazy">
+    width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; 
+    encrypted-media; fullscreen; picture-in-picture" loading="lazy">
   </iframe>
 </section>
