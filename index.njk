@@ -11,8 +11,18 @@ title: home
 <section class="home-featured">
   <h1>latest entries</h1>
   <div class="card-container">
-    {% set latestJournaling = collections.journaling | first %}
-    {% set latestLearning = collections.learning | first %}
+
+    {% set latestJournaling = collections.journaling 
+      | rejectattr("inputPath", "search", "index.md")
+      | sort(attribute="date", reverse=true) 
+      | first 
+    %}
+
+    {% set latestLearning = collections.learning 
+      | rejectattr("inputPath", "search", "index.md")
+      | sort(attribute="date", reverse=true) 
+      | first 
+    %}
 
     {% if latestJournaling %}
       <a href="{{ latestJournaling.url }}" class="post-card-link">
@@ -31,6 +41,7 @@ title: home
         </div>
       </a>
     {% endif %}
+
   </div>
 </section>
 
