@@ -14,16 +14,16 @@
       <a href="/">home</a>
       <a href="/journaling/">journaling</a>
       <a href="/learning/">learning</a>
-      <a href="/sticky/">sticky board</a>
+      <a href="/board/">board</a>
     </nav>
   </header>
 
   <main>
-  {% if title and page.url != "/journaling/" and page.url != "/learning/" and page.url != "/" %}
+  {% if title and page.url != "/journaling/" and page.url != "/learning/" and page.url != "/" and page.url != "/board/" %}
     <h1 class="post-heading">{{ title }}</h1>
   {% endif %}
 
-  {% if date and page.url != "/journaling/" and page.url != "/learning/" and page.url != "/" %}
+  {% if date and page.url != "/journaling/" and page.url != "/learning/" and page.url != "/" and page.url != "/board/" %}
     <p class="post-date-meta">{{ date | readableDate }}</p>
   {% endif %}
 
@@ -31,7 +31,10 @@
 </main>
 
   <footer>
-    <p>© 2025 SillySealThoughts.com spreading silly seal vibes 🐚</p>
+    <p>spreading silly seal vibes 🐚</p>
   </footer>
+
+  <!-- Add your JavaScript file -->
+  <script type="module" src="/scripts/main.js"></script>
 </body>
 </html>
