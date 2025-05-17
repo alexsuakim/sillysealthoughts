@@ -34,6 +34,7 @@ header {
 
 nav {
   margin-top: 0.5rem;
+  text-align: center;
 }
 
 nav a {
@@ -42,6 +43,18 @@ nav a {
   color: #555;
   font-weight: 500;
   font-size: 1.05rem;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #69c1c2;
+  opacity: 0.8;
+}
+
+nav a.active {
+  color: #69c1c2;
+  opacity: 1;
 }
 
 footer {
@@ -88,7 +101,6 @@ main a:hover {
   opacity: 0.8;
 }
 
-/* ---------- Post styling ---------- */
 .post-card-link {
   text-decoration: none;
   color: inherit;
@@ -142,7 +154,6 @@ main a:hover {
   margin-bottom: 2rem;
 }
 
-/* ---------- Home-specific ---------- */
 .home-intro p,
 .home-outro p {
   font-size: 1.05rem;
@@ -152,12 +163,12 @@ main a:hover {
 
 .home-featured h2,
 .home-playlist h2 {
-  font-size: 1.4rem;
+  font-size: 1rem;
   margin-top: 2.5rem;
-  margin-bottom: 1.5rem; /* reduced from 3rem */
-  color: #69c1c2;
-  text-align: center;
-  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #555;
+  background-color: #eee;
+  font-weight: 400;
   text-decoration: none;
 }
 
@@ -165,7 +176,6 @@ section {
   margin-bottom: 8rem;
 }
 
-/* ---------- Featured entries layout on home ---------- */
 .latest-entry-grid {
   display: flex;
   flex-direction: column;
