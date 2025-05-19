@@ -48,12 +48,12 @@ nav a {
 
 nav a:hover,
 nav a:focus {
-  color: #69c1c2; /* Highlight color */
+  color: #69c1c2;
   opacity: 0.8;
 }
 
 nav a.active {
-  color: #69c1c2; /* Active page color */
+  color: #69c1c2;
   opacity: 1;
 }
 
@@ -101,7 +101,6 @@ main a:hover {
   opacity: 0.8;
 }
 
-/* ---------- Post styling ---------- */
 .post-card-link {
   text-decoration: none;
   color: inherit;
@@ -155,7 +154,6 @@ main a:hover {
   margin-bottom: 2rem;
 }
 
-/* ---------- Home-specific ---------- */
 .home-intro p,
 .home-outro p {
   font-size: 1.05rem;
@@ -167,9 +165,9 @@ main a:hover {
 .home-playlist h2 {
   font-size: 1rem;
   margin-top: 2.5rem;
-  margin-bottom: 1.5rem; /* reduced from 3rem */
-  /* text-align: center; */
+  margin-bottom: 1.5rem;
   color: #555;
+  background-color: #eee;
   font-weight: 400;
   text-decoration: none;
   background-color: #eee;
@@ -179,7 +177,6 @@ section {
   margin-bottom: 8rem;
 }
 
-/* ---------- Featured entries layout on home ---------- */
 .latest-entry-grid {
   display: flex;
   flex-direction: column;
@@ -248,64 +245,4 @@ section {
   font-size: 0.95rem;
   color: #999;
   margin: 0;
-}
-
-/* ---------- Textbox and Board Styling ---------- */
-.textbox {
-  position: absolute;
-  border: 1px dashed #ccc;
-  background: transparent;
-  padding: 10px;
-  font-size: 1rem;
-  min-width: 150px;
-  min-height: 100px;
-  resize: none;
-  cursor: pointer;
-}
-
-.textbox .text-box-content {
-  overflow-y: auto;
-}
-
-.textbox .text-box-toolbar {
-  position: absolute;
-  top: -30px;
-  right: 10px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 5px;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.textbox .text-box-toolbar select {
-  margin-right: 5px;
-}
-
-.textbox .text-box-toolbar button {
-  background-color: #69c1c2;
-  color: white;
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-  font-size: 0.85rem;
-}
-
-.textbox .text-box-toolbar button:hover {
-  background-color: #69c1c2;
-}
-
-/* Textbox text color */
-.textbox .text-box-content {
-  color: #333;
-}
-
-.textbox:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.textbox .text-box-toolbar button:focus {
-  outline: none;
 }
